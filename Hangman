@@ -1,0 +1,35 @@
+import random
+
+word_list = ["python", "programming", "random", "choice", "module"]
+word = random.choice(word_list)
+a=5
+lis={}
+guess={}
+c=0
+for i in word:
+    lis[c]=i
+    guess[c]='_'
+    c=c+1
+    print(lis)
+print (guess)
+while a>0:
+    if guess==lis:
+        print("Word guessed correctly")
+        break
+    attempt=input("Guess the letter")
+    if attempt in lis.values(): 
+        for key, value in lis.items():
+            if value == attempt:
+                guess.update({key:attempt})
+        print(guess)
+    elif guess==lis:
+        print("Correct guess")
+        a=a-1
+    elif a==0:
+        a=a-1
+        print("You have used all your guesses")
+        print("The word is ", word)
+        break
+    else:
+        a=a-1
+        print("Letter not present. You have ", a," attempts left")
