@@ -1,0 +1,32 @@
+import random
+lis=['rock','paper','scissors']
+x=int(input("How many rounds do you want?"))
+w,l,a=0,0,1
+while x>0:
+    print("Round ",a)
+    a+=1
+    c=input("Choose one: rock, paper, scissors")
+    r=random.choice(lis)
+    if c=='rock' and r=='scissors':
+        w=w+1
+        print("Computer chose "+r+". You won this round")
+        x-=1
+    elif c=='paper' and r=='rock':
+        w=w+1
+        print("Computer chose "+r+". You won this round")
+        x-=1
+    elif c=='scissors' and r=='paper':
+        w=w+1
+        print("Computer chose "+r+". You won this round")
+        x-=1
+    elif c==r:
+        print("Both choices are same. This round is tied")
+        continue
+    else:
+        l=l+1
+        print("Computer chose "+r+". You lost this round")
+        x-=1
+if w>l:
+    print("You have won the game")
+else:
+    print("You have lost the game")
